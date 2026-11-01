@@ -1,0 +1,12 @@
+#include <windows.h>
+#define MOUSE_ORIGINAL_FILENAME "MouseClickStats.UI.exe\0"
+#include "../../assets/version.rcinc"
+1 ICON "../../assets/mouse.ico"
+101 RCDATA "Dashboard.xaml"
+102 RCDATA "SpeedTest.xaml"
+#ifdef MOUSE_UI_MANIFEST
+1 RT_MANIFEST MOUSE_UI_MANIFEST
+#else
+1 RT_MANIFEST "../../assets/app.manifest"
+#endif
+

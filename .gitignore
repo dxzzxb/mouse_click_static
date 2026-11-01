@@ -1,0 +1,15 @@
+/build/
+/out/
+/dist/
+/packages/
+/.tools/
+/.vs/
+*.user
+*.suo
+*.db
+*.db-wal
+*.db-shm
+*.log
+__pycache__/
+*.py[cod]
+

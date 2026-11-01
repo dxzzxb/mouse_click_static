@@ -1,0 +1,6 @@
+#include <windows.h>
+#define MOUSE_ORIGINAL_FILENAME "MouseClickStats.exe\0"
+#include "../../assets/version.rcinc"
+1 ICON "../../assets/mouse.ico"
+1 RT_MANIFEST "../../assets/app.manifest"
+

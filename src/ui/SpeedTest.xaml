@@ -1,0 +1,33 @@
+<ContentDialog xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="鼠标手速测试" CloseButtonText="关闭" DefaultButton="None">
+  <ContentDialog.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light"><SolidColorBrush x:Key="AccentBrush" Color="#008C82"/><SolidColorBrush x:Key="AccentSoftBrush" Color="#DDF3EF"/></ResourceDictionary>
+        <ResourceDictionary x:Key="Default"><SolidColorBrush x:Key="AccentBrush" Color="#43D2BF"/><SolidColorBrush x:Key="AccentSoftBrush" Color="#163D3B"/></ResourceDictionary>
+      </ResourceDictionary.ThemeDictionaries>
+      <Style x:Key="Muted" TargetType="TextBlock"><Setter Property="Opacity" Value="0.65"/><Setter Property="FontSize" Value="12"/></Style>
+      <Style x:Key="Metric" TargetType="TextBlock"><Setter Property="FontSize" Value="30"/><Setter Property="FontWeight" Value="SemiBold"/><Setter Property="FontFamily" Value="Bahnschrift"/></Style>
+    </ResourceDictionary>
+  </ContentDialog.Resources>
+  <StackPanel Spacing="18" MinWidth="420" MaxWidth="500">
+    <TextBlock Text="选择按键和时长，在下方区域连续点击。首次有效按下开始计时。" FontSize="13" TextWrapping="Wrap"/>
+    <Grid ColumnSpacing="12"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+      <ComboBox x:Name="TestButtonPicker" Header="测试按键" SelectedIndex="0" HorizontalAlignment="Stretch"><ComboBoxItem Content="左键"/><ComboBoxItem Content="右键"/></ComboBox>
+      <ComboBox x:Name="TestDurationPicker" Grid.Column="1" Header="测试时长" SelectedIndex="0" HorizontalAlignment="Stretch"><ComboBoxItem Content="1 秒"/><ComboBoxItem Content="3 秒"/></ComboBox>
+    </Grid>
+    <Border x:Name="TestArea" Height="152" Background="{ThemeResource AccentSoftBrush}" BorderBrush="{ThemeResource AccentBrush}" BorderThickness="1" CornerRadius="12" Padding="20" IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" AutomationProperties.Name="鼠标点击测试区域">
+      <StackPanel VerticalAlignment="Center" Spacing="10" IsHitTestVisible="False">
+        <TextBlock x:Name="TestAreaTitle" Text="点击此处开始" FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+        <TextBlock x:Name="TestRemaining" Text="准备就绪 · 左键 · 1 秒" FontSize="13" HorizontalAlignment="Center"/>
+      </StackPanel>
+    </Border>
+    <ProgressBar x:Name="TestProgress" Minimum="0" Maximum="100" Value="0"/>
+    <Grid ColumnSpacing="20"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+      <StackPanel Spacing="6"><TextBlock Text="点击次数" Style="{StaticResource Muted}"/><TextBlock x:Name="TestClicks" Text="0" Style="{StaticResource Metric}"/></StackPanel>
+      <StackPanel Grid.Column="1" Spacing="6"><TextBlock Text="CPS / 每秒" Style="{StaticResource Muted}"/><TextBlock x:Name="TestCps" Text="—" Style="{StaticResource Metric}"/></StackPanel>
+      <StackPanel Grid.Column="2" Spacing="6"><TextBlock Text="折算 APM" Style="{StaticResource Muted}"/><TextBlock x:Name="TestApm" Text="—" Style="{StaticResource Metric}"/></StackPanel>
+    </Grid>
+    <TextBlock Text="APM = 点击次数 ÷ 测试秒数 × 60。仅计所选鼠标键，双击计两次，长按不连计。后台未暂停时，测试点击仍计入日常统计。" FontSize="11" TextWrapping="Wrap" Opacity="0.65"/>
+    <Button x:Name="TestResetButton" Content="重新测试" HorizontalAlignment="Left"/>
+  </StackPanel>
+</ContentDialog>
