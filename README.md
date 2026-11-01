@@ -4,6 +4,8 @@
 
 **Windows 10 1903+ / Windows 11 · x64 · v0.3.5**
 
+**[下载 v0.3.5 便携版（Windows x64）](https://github.com/dxzzxb/mouse_click_static/releases/download/v0.3.5/MouseClickStats-0.3.5-win-x64-portable.zip)** · [发布说明](https://github.com/dxzzxb/mouse_click_static/releases/tag/v0.3.5)
+
 ## 界面展示
 
 ![Mouse Click Stats 统计概览实际运行截图](docs/screenshots/dashboard.png)
